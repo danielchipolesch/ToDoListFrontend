@@ -1,7 +1,8 @@
 <div>
     <h2>Consulta de tarefas</h2>
     <p>Listagem de tarefas incluídas em sua agenda.</p>
-    <hr /> 
+    <hr />
+  
   
     <div class="table-responsive">
       <table class="table table-sm table-hover table-striped">
@@ -28,8 +29,14 @@
             <td>{{ item.title | uppercase }}</td>
             <td>{{ item.description }}</td>
             <td>
-              <button class="btn btn-sm btn-outline-primary me-1">Editar</button>
-              <button class="btn btn-sm btn-outline-danger">Excluir</button>
+              <button class="btn btn-sm btn-outline-primary me-1"
+                [routerLink]="['/pages/todo/edit', item.id]">
+                Editar
+              </button>
+              <button class="btn btn-sm btn-outline-danger"
+                (click)="onDelete(item.id)">
+                Excluir
+              </button>
             </td>
           </tr>
         </tbody>
@@ -40,4 +47,4 @@
         </tfoot>
       </table>
     </div>
-  </div>  
+  </div>
